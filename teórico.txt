@@ -1,0 +1,423 @@
+Preguntas sobre la conexión entre el frontend y el backend
+1.	¿Cómo conecto el backend con el frontend?
+El frontend se conecta al backend mediante solicitudes HTTP (GET, POST, PUT, DELETE) utilizando fetch o bibliotecas como axios. En este caso, el frontend utiliza fetch para enviar solicitudes a las rutas del backend definidas en app.js. La URL base del backend se define en main.js como API_URL.
+2.	Qué es una API y cómo se utiliza en este proyecto?
+Una API (Interfaz de Programación de Aplicaciones) es un conjunto de reglas que permite que dos aplicaciones se comuniquen entre sí. En este proyecto, el backend expone una API REST con rutas como /api/pacientes para que el frontend pueda interactuar con la base de datos.
+3.	¿Qué es una URL y cómo se usa aquí?
+Una URL (Uniform Resource Locator) es la dirección que identifica un recurso en la web. En este proyecto, las URLs como http://localhost:3000/api/pacientes se utilizan para acceder a las rutas del backend desde el frontend.
+
+Preguntas sobre herramientas y dependencias
+4.	¿Qué hace nodemon y cómo funciona?
+nodemon es una herramienta que reinicia automáticamente el servidor Node.js cada vez que detecta cambios en los archivos del proyecto. Esto facilita el desarrollo, ya que no necesitas reiniciar manualmente el servidor después de cada cambio.
+5.	¿Para qué sirve cors?
+cors (Cross-Origin Resource Sharing) es un middleware que permite que el backend acepte solicitudes desde dominios diferentes al suyo. En este proyecto, se utiliza para permitir que el frontend (que se ejecuta en el navegador) se comunique con el backend.
+6.	¿Qué es sequelize y cómo se usa aquí?
+sequelize es un ORM (Object-Relational Mapping) para Node.js que facilita la interacción con bases de datos. En este proyecto, se utiliza para definir el modelo Paciente y realizar operaciones como crear, leer, actualizar y eliminar registros en la base de datos.
+
+Preguntas sobre el backend
+7.	¿Cómo cambio un modelo en Sequelize?
+Para cambiar un modelo, modifica su definición en el archivo correspondiente (por ejemplo, Paciente.js). Si cambias la estructura de la base de datos, debes sincronizarla nuevamente con Sequelize o realizar una migración.
+8.	¿Qué es una ruta en Express y cómo funciona?
+Una ruta en Express es un punto final que responde a una solicitud HTTP. Por ejemplo, app.get('/api/pacientes', ...) define una ruta que responde a solicitudes GET en /api/pacientes.
+
+
+
+9.	¿Cómo harías para filtrar pacientes de otra manera?
+Podría agregar un nuevo parámetro de consulta (query) en la ruta del backend, como ?telefono=123456789, y usarlo para filtrar pacientes por teléfono: 
+if (telefono) {
+  where.Telefono = telefono;
+}
+10.	¿Qué diferencia hay entre req.query y req.params?
+req.query se utiliza para obtener parámetros de consulta en la URL (por ejemplo, ?nombre=Juan).
+req.params se utiliza para obtener parámetros en la ruta (por ejemplo, /api/pacientes/:id).
+11.	¿Qué es async/await y por qué se usa aquí?
+async/await es una sintaxis para manejar promesas de manera más legible. Se utiliza aquí para realizar operaciones asíncronas como consultas a la base de datos o solicitudes HTTP.
+12.	¿Qué es un middleware en Express?
+Un middleware es una función que se ejecuta antes de que una solicitud llegue a su controlador. En este proyecto, express.json() y cors() son ejemplos de middlewares.
+
+Preguntas sobre el frontend
+13.	¿Cómo se actualiza dinámicamente la tabla de pacientes?
+La tabla se actualiza dinámicamente al modificar su contenido HTML con JavaScript. La función cargarPacientes obtiene los datos del backend y genera filas de tabla con document.createElement y innerHTML.
+14.	¿Qué hace el evento DOMContentLoaded?
+Este evento se dispara cuando el DOM está completamente cargado. En este proyecto, se utiliza para inicializar la carga de pacientes y configurar los eventos del formulario y el campo de búsqueda.
+15.	¿Cómo funciona el formulario para agregar o editar pacientes?
+El formulario utiliza un campo oculto (IdPaciente) para determinar si se está creando o editando un paciente. Si el campo tiene un valor, se realiza una solicitud PUT; de lo contrario, se realiza una solicitud POST.
+16.	¿Qué es fetch y cómo se usa aquí?
+fetch es una API de JavaScript para realizar solicitudes HTTP. En este proyecto, se utiliza para enviar solicitudes al backend y manejar las respuestas.
+
+
+
+
+
+
+
+Preguntas sobre la base de datos
+17.	¿Qué es SQLite y por qué se usa aquí?
+SQLite es una base de datos ligera que no requiere un servidor separado. Es ideal para proyectos pequeños o en desarrollo, como este.
+18.	¿Cómo verificas los datos en la base de datos?
+Puedes usar herramientas como DB Browser for SQLite para inspeccionar y modificar los datos directamente en la base de datos.
+19.	¿Qué pasa si eliminas un paciente que no existe?
+El backend devuelve un error 404 con el mensaje "Paciente no encontrado". Esto se maneja en la función eliminarPaciente del frontend.
+
+Preguntas sobre conceptos generales
+20.	¿Qué es REST y cómo se aplica aquí?
+REST (Representational State Transfer) es un estilo de arquitectura para diseñar APIs. En este proyecto, el backend sigue los principios REST al exponer rutas como /api/pacientes para realizar operaciones CRUD.
+21.	¿Qué es CRUD?
+CRUD son las operaciones básicas de una base de datos: Crear (Create), Leer (Read), Actualizar (Update) y Eliminar (Delete).
+22.	¿Qué es un ORM y por qué usarlo?
+Un ORM (Object-Relational Mapping) permite interactuar con bases de datos usando objetos en lugar de escribir consultas SQL manualmente. Sequelize es el ORM utilizado en este proyecto.
+23.	¿Qué es una promesa en JavaScript?
+Una promesa es un objeto que representa un valor que puede estar disponible ahora, en el futuro o nunca. Se utiliza para manejar operaciones asíncronas como solicitudes HTTP.
+24.	¿Qué es un try/catch y por qué se usa aquí?
+try/catch es una estructura para manejar errores en JavaScript. Se utiliza aquí para capturar errores en operaciones asíncronas y mostrar mensajes de error al usuario.
+25.	¿Qué es el DOM y cómo se manipula aquí?
+El DOM (Document Object Model) es la representación estructurada de un documento HTML. En este proyecto, se manipula con métodos como document.getElementById y innerHTML.
+
+
+
+
+
+
+
+Preguntas sobre optimización y mejoras
+26.	¿Cómo mejorarías este proyecto?
+Podría agregar validaciones más robustas en el frontend y backend, implementar paginación para la lista de pacientes, y usar una biblioteca como axios para manejar solicitudes HTTP.
+27.	¿Cómo manejarías errores en el backend?
+Usaría un middleware de manejo de errores en Express para capturar y responder a errores de manera uniforme.
+28.	¿Cómo implementarías autenticación?
+Podría usar JWT (JSON Web Tokens) para autenticar usuarios y proteger las rutas del backend.
+
+Más preguntas
+29.	¿Qué es una API? ¿Cómo funciona?
+Una API (Interfaz de Programación de Aplicaciones) es un conjunto de reglas y protocolos que permite que dos aplicaciones se comuniquen entre sí. En este caso, la API actúa como un intermediario entre el frontend y el backend.
+El frontend realiza una solicitud (request) a la API, que procesa la solicitud, ejecuta la lógica de negocio en el backend, consulta la base de datos si es necesario y devuelve una respuesta (response) al frontend.
+30.	¿Qué es un fetch y cómo funciona?
+fetch es una función nativa de JavaScript que se utiliza para realizar solicitudes HTTP desde el frontend al backend o a cualquier servidor.
+Funciona de manera asincrónica y devuelve una promesa que se resuelve con la respuesta del servidor. Por ejemplo:
+fetch('http://localhost:3000/api/pacientes')
+  .then(response => response.json())
+  .then(data => console.log(data))
+  .catch(error => console.error('Error:', error));
+31.	¿Cómo conecto el backend con el frontend? 
+Para conectar el backend con el frontend: Configura el backend para que exponga una API con rutas (endpoints) utilizando un framework como Express; En el frontend, utiliza fetch o una librería como Axios para realizar solicitudes HTTP a las rutas del backend; Asegúrate de que el backend tenga habilitado CORS para permitir solicitudes desde el dominio del frontend.
+32.	¿Qué hace nodemon y cómo funciona?
+nodemon es una herramienta que reinicia automáticamente el servidor Node.js cada vez que detecta cambios en los archivos del proyecto. Esto facilita el desarrollo, ya que no necesitas reiniciar manualmente el servidor después de cada cambio.
+Se ejecuta con el comando: npm run dev (si está configurado en el script de package.json).
+33.	¿Para qué sirve cors?
+cors (Cross-Origin Resource Sharing) es un middleware de Express que permite o restringe solicitudes HTTP desde dominios diferentes al del servidor backend.
+Es necesario cuando el frontend y el backend están en dominios distintos (por ejemplo, localhost:3000 para el backend y localhost:5500 para el frontend).
+34.	¿Qué es una URL? 
+Una URL (Uniform Resource Locator) es la dirección que se utiliza para acceder a un recurso en la web. Por ejemplo, http://localhost:3000/api/pacientes es una URL que apunta a la ruta de la API para obtener pacientes.
+35.	¿Cómo cambio un modelo en Sequelize?
+Para cambiar un modelo en Sequelize: Abre el archivo del modelo en la carpeta models; Modifica las propiedades o atributos del modelo; Si es necesario, sincroniza los cambios con la base de datos ejecutando: await sequelize.sync({ alter: true }); 
+Esto actualizará la estructura de la tabla en la base de datos.
+36.	Cómo harías para filtrar de otra manera?
+En lugar de filtrar por el nombre del propietario, podría filtrar por otros campos, como el nombre de la mascota o el teléfono. Por ejemplo:
+app.get('/api/pacientes', async (req, res) => {
+  const { telefono } = req.query;
+  const where = {};
+  if (telefono) {
+    where.Telefono = { [Op.like]: `%${telefono}%` };
+  }
+  const pacientes = await Paciente.findAll({ where });
+  res.json(pacientes);
+});
+37.	¿Cuál es la diferencia entre query y params?
+query: Son parámetros que se envían en la URL después del signo ? y se utilizan para filtrar o modificar la solicitud. Ejemplo:
+GET /api/pacientes?nombre=Juan
+Aquí, nombre=Juan es un parámetro de consulta (query).
+params: Son parámetros que forman parte de la ruta y se utilizan para identificar un recurso específico. Ejemplo:
+GET /api/pacientes/1
+Aquí, 1 es un parámetro de ruta (params).
+38.	¿Qué es un modelo en Sequelize? 
+Un modelo en Sequelize es una representación de una tabla en la base de datos. Define los campos, tipos de datos y restricciones de la tabla. Por ejemplo:
+const Paciente = sequelize.define('Paciente', {
+  IdPaciente: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
+  NombreMascota: { type: DataTypes.STRING, allowNull: false },
+  Propietario: { type: DataTypes.STRING, allowNull: false },
+  Telefono: { type: DataTypes.STRING, allowNull: true },
+});
+39.	¿Qué es un CRUD? 
+CRUD son las operaciones básicas que se pueden realizar en una base de datos:
+Create: Crear un nuevo registro.
+Read: Leer o consultar registros.
+Update: Actualizar registros existentes.
+Delete: Eliminar registros.
+
+
+
+40.	¿Qué es Sequelize y para qué sirve?
+Sequelize es un ORM (Object-Relational Mapping) para Node.js que permite interactuar con bases de datos relacionales como SQLite, MySQL o PostgreSQL utilizando código JavaScript en lugar de escribir consultas SQL directamente.
+41.	¿Qué es SQLite y por qué lo usamos?
+SQLite es un motor de base de datos ligero y autónomo que almacena los datos en un archivo local. Es ideal para proyectos pequeños o de desarrollo porque no requiere un servidor de base de datos separado.
+42.	¿Qué es un endpoint?
+Un endpoint es una URL específica de una API que permite realizar una acción o acceder a un recurso. Por ejemplo:
+GET /api/pacientes: Obtiene todos los pacientes.
+POST /api/pacientes: Crea un nuevo paciente.
+43.	¿Qué es async/await y por qué lo usamos?
+async/await es una forma de manejar operaciones asincrónicas en JavaScript. Permite escribir código que parece síncrono pero que en realidad es asincrónico.
+Ejemplo: 
+async function obtenerPacientes() {
+  const res = await fetch('http://localhost:3000/api/pacientes');
+  const pacientes = await res.json();
+  console.log(pacientes);
+}
+44.	 ¿Qué es un middleware en Express?
+Un middleware es una función que se ejecuta entre la solicitud del cliente y la respuesta del servidor. Se utiliza para realizar tareas como autenticación, validación de datos o manejo de errores.
+45.	¿Cómo configuro CORS en Express?
+Instala el paquete cors y agrégalo como middleware: 
+import cors from 'cors';
+app.use(cors());
+46.	¿Qué es un archivo package.json? 
+Es un archivo que contiene información sobre el proyecto Node.js, como dependencias, scripts y metadatos. Se genera con: npm init -y
+47.	¿Qué es un script en package.json?
+Un script es un comando que puedes ejecutar desde la terminal. Por ejemplo:
+"scripts": {
+  "dev": "nodemon app.js"
+}
+Se ejecuta con: npm run dev
+48.	¿Qué es un ORM? 
+Un ORM (Object-Relational Mapping) es una herramienta que permite interactuar con bases de datos relacionales utilizando objetos en lugar de escribir consultas SQL directamente.
+
+
+
+49.	Explicación de los métodos HTTP: POST, PUT, GET y DELETE
+En el contexto de una API REST, estos métodos se utilizan para realizar operaciones CRUD (Create, Read, Update, Delete) sobre los recursos. Aquí tienes una explicación detallada de cada uno:
+GET: ¿Qué hace? El método GET se utiliza para leer o obtener datos de un servidor. No modifica los datos en el servidor, solo los consulta.
+POST: ¿Qué hace?
+El método POST se utiliza para crear un nuevo recurso en el servidor. Envía datos en el cuerpo de la solicitud para que el servidor los procese y los almacene.
+PUT: ¿Qué hace?
+El método PUT se utiliza para actualizar un recurso existente en el servidor. Reemplaza completamente el recurso con los datos enviados en el cuerpo de la solicitud.
+DELETE: ¿Qué hace?
+El método DELETE se utiliza para eliminar un recurso existente en el servidor.
+ 
+50.	Trycatch: La función try-catch en JavaScript se utiliza para manejar errores en bloques de código que podrían fallar durante su ejecución. Su propósito principal es evitar que un error detenga la ejecución del programa y proporcionar una forma de manejarlo de manera controlada.
+¿Cómo funciona? try: Contiene el bloque de código que se intenta ejecutar. Si ocurre un error en este bloque, la ejecución se detiene y pasa al bloque catch.
+catch: Contiene el código que se ejecuta si ocurre un error en el bloque try. Aquí puedes manejar el error, mostrar mensajes al usuario o registrar el error para depuración. 
+Ejemplo en un contexto de API:
+En una API, el bloque try-catch se utiliza para manejar errores al interactuar con la base de datos o al procesar solicitudes.
+Ventajas del try-catch:
+Evita que el programa se detenga:
+Si ocurre un error, el programa no se detiene abruptamente, sino que pasa al bloque catch.
+Manejo controlado de errores:
+Permite mostrar mensajes claros al usuario o registrar errores para depuración.
+Útil en operaciones asincrónicas:
+Es especialmente útil cuando trabajas con promesas o async/await, ya que puedes capturar errores en operaciones asincrónicas.
+Notas importantes: Siempre utiliza try-catch en operaciones que puedan fallar, como llamadas a la base de datos, solicitudes HTTP o manipulación de archivos.
+En aplicaciones grandes, puedes combinar try-catch con middlewares para manejar errores de manera centralizada.
+51.	¿Qué es el CRUD?
+CRUD es un acrónimo que representa las cuatro operaciones básicas que se pueden realizar en una base de datos o en un sistema de gestión de información. Estas operaciones son:
+Create (Crear): ¿Qué hace?: Permite crear un nuevo registro en la base de datos.
+Ejemplo en una API REST: Se utiliza el método HTTP POST para enviar los datos al servidor y crear un nuevo recurso.
+Read (Leer): ¿Qué hace?: Permite leer o consultar datos existentes en la base de datos. Ejemplo en una API REST: Se utiliza el método HTTP GET para obtener los datos.
+Update (Actualizar): ¿Qué hace? Permite actualizar un registro existente en la base de datos. Ejemplo en una API REST: Se utiliza el método HTTP PUT para enviar los datos actualizados al servidor.
+Delete (Eliminar): ¿Qué hace?: Permite eliminar un registro existente en la base de datos. Ejemplo en una API REST: Se utiliza el método HTTP DELETE para eliminar un recurso.
+ 
+¿Por qué es importante CRUD? CRUD es fundamental en cualquier sistema que maneje datos, ya que define las operaciones básicas necesarias para interactuar con la información almacenada en una base de datos. Es la base de cualquier aplicación web o sistema de gestión de datos.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Explicación backend
+JSON = objetos clave/valor con una anotación específica que son datos apropiados para una aplicación.
+Backend = maneja la lógica de negocio, todos los casos de uso de un sistema (modificar, crear, registrar, etc.) y se comunica con el cliente. Hacemos Backend en un entorno llamado node.js.
+Node = nos permite ejecutar json en un servidor. Creo un proyecto node con un software npm, sirve para ejecutar, crear, etc. un proyecto.
+PACKAGE.JSON: En la terminal dentro de mi carpeta backend pongo: npm init -y (crea un proyecto node y dice que para tds las preguntas que se hacen por un proyecto, marca las respuestas por defecto), se crea el archivo package.json. Este especifica la entrada del proyecto.
+En package.json agregar abajo de "main" (para poder importar/exportar): 
+  "type": "module", // permite importar y exportar archivos 
+  "scripts": {
+    "dev": "nodemon src/index.js", // sirve para ejecutar el proyecto, el nodemon sirve para que se vayan actualizando los cambios sin tener que abrir y cerrar el archivo td el tiempo.
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+API = interfaz de aplicación de programación, es una fuente entre el front y el back, es lo que los comunica. El front hace una petición a la API, la API le dice al back, el back hace su lógica de negocio preguntándole a la base de datos, la base de datos devuelve algo y el back se lo devuelve al front.
+En app.js vamos a construir la API.
+
+SQLite = motor de base de datos.
+Sequelize = framework ORM; herramienta que permite vincular el modelo (las tablas en models) que creamos con la base de datos.
+Express = para crear la API.
+Cors = vincula el back con el front; permite que las peticiones se vean de un front específico.
+
+MODELOS: Un modelo es una representación de las tablas (entidades) de una base de datos en términos de código. Son igual que las tablas de la base de datos, creo archivos con los mismos nombres de las tablas de la base de datos (ej: Usuarios.js). Uso sequelize para hacer los modelos.
+Estructura usada para modelos:
+import { DataTypes } from "sequelize"
+const Pelicula = sequelize.define('Pelicula', {
+    titulo: {
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
+    director: {
+        type: DataTypes.STRING,
+        allowNull: true,
+    },
+    anio: {
+        type: DataTypes.INTEGER,
+    },
+    genero: {
+        type: DataTypes.STRING,
+        allowNull: true,
+    },
+});
+
+BASE DE DATOS: carpeta databases con databases.js dentro, es una cadena de conexión
+
+post (crear) y put (actualizar) modifican la base de datos 
+
+PARA RUNEAR EN LA TERMINAL: 
+npm run dev (dev es el nombre del script que puse en package.json)
+En google pongo: http://localhost:4001
+
+ASINCRONISMO: programación asincrónica - simular sincronismo en el asincronismo; fuerzo a que el programa termine la tarea antes de pasar a la otra
+CRUD = Create, Read, Update, Delete
+
+PASOS:
+Instalar las dependencias (en la terminal dentro de la carpeta back/src): npm i express sequelize sqlite3 cors (express: servidor http; sequelize: ORM para sqlite; sqlite3: motor de base de datos; cors: para permitir conexiones del frontend).
+Instalar dependencias de desarrollo (las dependencias normales cuando subo el proyecto a interner siguen estando, las de desarollo se van): npm install -D nodemon (sirve para que los cambios sean dinámicos, mantiene el código en ejecución cuando yo cambio algo en el back)
+Dentro de back/scr creo un archivo .gitignore y pongo: package-lock.json y node_modules (uno en cada linea)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Explicación frontend
+JavaScript = es un lenguaje complejo, se puede ejecutar tanto en CLIENT o en SERVER. En client para hacer peticiones y obtener una respuestas y en server para recibir las peticiones y enviar respuestas (sirve de front y back).
+Tipos de datos: string, boolean, null, undefined, symbol, number, object, bigint.
+JS tiene asignación de variables (es declarar que existe la variable, inicialmente el valor es undefined) o incializar variables (a una variable darle un valor)
+Asignar variable: let (cadena de caracteres, numeros, boolean), const (para variables de lectura, objetos, arrays/listas)
+
+console.log() es igual al print en python
+para runear js: node rutaAlArchivo
+
+Cadena de caracteres va con comillas dobles o simples, pero si quiero poner una variable dentro de una cadena de caracteres debo poner ``
+
+CONDICIONALES
+if (condición) {
+    contenido que se ejecuta si la condición es verdadera
+}
+else {
+    contenido que se ejecuta si la condición es falsa
+}
+
+let i = 0;
+while (condición) {
+    console.log(i+1);
+    i++;
+}
+
+for (let i = 0; i < 10; i++) {
+    console.log(i + 1);
+}
+
+OPERADORES 
+=== igual escrito
+!== distinto escrito
+&& and
+|| or 
+! not
+
+valores que se consideran false: false, 0, -, 0m, cadena vacía ("", '', ``), null, undefined, NaN.
+
+
+
+
+
+
+FUNCIONES
+funcion suma (a, b) {
+    return a + b
+}
+este tipo de función la puedo declarar en cualquier lado, console.log() puede estar en cualquier lado
+
+const suma = (a, b) => a + b
+esta tiene que estar la función y luego console.log
+
+
+ARREGLOS
+Para acceder por índice: array[0] = primer elemento. En js 0-index.
+Para añadir un elemento: array.push(nuevo elemento), siempre se agregan dinámicamente al final sin límite.
+Para añadir al comienzo: array.unshift(elemento). Esto devuelve el número de elementos.
+Para quitar el último elemento: array.pop(). Esto devulve el elemento eliminado.
+Para conocer la cantidad de elementos: array.length (es una propiedad de los array, por eso va sin parentesis).
+
+Métodos importantes:
+map: recorre un array de objetos, y por cada objeto hace algo. Puedo o no guardarlo en una variable, si lo guardo en una variable
+filter: filtra según argumento, hace un nuevo array con las condiciones mandadas. Si o si debo agregarlo en una variable.
+
+El frontend tiene archivos .html, .css y .js
+
+HTML
+Siempre se llama index.html pq sino el Server nunca va a encontrar el archivo para poder dar inicio, está "programado" para que busque el archivo index.html para poder seguir.
+Es un esquema general, haces interfaces/pantallas.
+HTML consiste en: etiqueta de apertura + contenido + etiqueta de cierre = elemento
+Las etiquetas pueden tener atributos.
+Estructura básica HTML: etiqueta que indica que estas programando en HTML, un encabezado (head) el cual tiene información técnica para el navegador, el cuerpo (body) es lo que se muestra al usuario por pantalla.
+
+elementos: html docs (en google)
+h1 = Título
+p = párrafo
+hr = linea horizontal divisoria
+img = imagen (en src va el link de la imagen y en alt va un mensaje por si la imagen no está disponible)
+a = enlaces
+br = salto de línea
+label = <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre">
+Aquí, el <label> muestra “Nombre:” y está asociado al campo de entrada. Al hacer clic en el texto del label, el cursor se moverá al campo de entrada correspondiente.
+
+Semántica HTML: forma de organizar mejor las etiquetas en  html. En vez de poner siempre div, poner:
+Main = 
+Article = representa un contenido, como un artículo
+section = agrupa contenidos dentro de una página
+footer = pie de pagina
+tr = se usa dentro de table/tbody/thead/tfoot, representa una fila en una tabla HTML
+td = representa una celda de datos en una tabla, se usa dentro de tr
+th = representa una celda de encabezado en una tabla, se usa dentro de tr
+th scope = El atributo scope en <th> define el alcance del encabezado, es decir, si aplica a una fila, columna o grupo de filas/columnas. Valores posibles: row: El encabezado aplica a toda la fila. col: El encabezado aplica a toda la columna. rowgroup: Aplica a un grupo de filas. colgroup: Aplica a un grupo de columnas.
+thead = representa el encabezado de una tabla. Agrupa las filas de encabezado (<tr>) y generalmente contiene celdas de encabezado (<th>).
+Header = Representa el encabezado de un documento o sección. Generalmente contiene títulos, logotipos, menús de navegación o información introductoria.
+Tbody = Representa el cuerpo de una tabla. Agrupa las filas de datos (<tr>).
+
+Hacer formularios:
+form; donde action indica a que URL tengo que hacer la petición; method dice que método es (suele ser post). No vamos a necesitar poner action ni method pq vamos a usar JS.
+Los forms están compuestos por inputs, que son datos de entrada. 
+Busco en google: input types mozilla docs: texto, botón, checkbox, color, fecha, etc.
+Busco en google: input validates mozilla docs: para ver las posibilidades de validaciones: required minlenght, por ejemplo.
+
+CSS 
+Es la apariencia de la página.
+Debo agregar el link en head de index.html
+Especificidad: cual tiene mayor prioridad; id tiene mayor prioridad que class
+
+BOOSTRAP
+Boostrap = librería, copiamos el link en el head y buscando cada "categoría" (select, form, etc.) podes ir copiando y pegando líneas de código para dejarlo más lindo en html usando el atributo class.
+La pantalla siempre se divide en 12 columnas de igual tamaño, sea celular, computadora, tablet, etc. y en filas de diferentes tamaños la cantidad que vos quieras.
+div class="row justify-content-center" pone td en el medio
