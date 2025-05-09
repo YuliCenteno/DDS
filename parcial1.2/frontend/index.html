@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<body>
+    <header>
+        <h1 class="text-center">TABLA USUARIOS</h1>
+    </header>
+
+    <!-- Formulario para el getByFilters -->
+    <form action="" id="filterForm">
+        <!-- input nombre -->
+        <div class="mb-3">
+            <label for="nombre" class="form-label">Nombre</label>
+            <input type="text" name="nombre" id="" class="form-control">
+        </div>
+
+        <!-- input apellido -->
+        <div class="mb-3">
+            <label for="apellido" class="form-label">Apellido</label>
+            <input type="text" name="apellido" id="" class="form-control">
+        </div>
+
+        <!-- boton de enviar, cuando el tipo haga click aca, se ejecuta el getByFilters que esta en fetchIndex.js -->
+        <button type="submit">ENVIAR</button> 
+    </form>
+
+    <hr>
+
+    <!-- tabla para mostrar los registros -->
+    <table class="table table-striped table-hover table-bordered">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Usuario</th>
+                <th>Email</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody id="tablita">
+        </tbody>
+    </table>
+    
+    <!-- boton que conduce al apartado de crear un nuevo usuario  -->
+    <div class="container">
+        <div class="row justify-content-end mt-3">
+            <div class="col-auto">
+                <button style="border-radius: 50%;" class="btn btn-primary">
+                    <a href="crearUsuario.html">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-plus"
+                            viewBox="0 0 16 16">
+                            <path
+                                d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4" />
+                        </svg>
+                    </a>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="fetchIndex.js"></script>
+</body>
+</html>
