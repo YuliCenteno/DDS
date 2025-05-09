@@ -1,0 +1,46 @@
+paso1: crear proyecto, es decir:
+    -carpetas backend, frontend.
+    Dentro de backend:
+        -npm init -y
+        -npm i express sequelize sqlite3 cors
+        -en package.json añadir: "type": "module", "start": "node src/index.js", "dev": "node --watch src/index.js"
+        -crear carpeta src
+        -crear .gitignore y añadir package-lock.json y /node_modules
+        Dentro de src:
+            -crear carpeta databases, models, routers, services, test.
+            -crear app.js y index.js
+
+paso2: crear la app.js express
+paso3: ver si anda la api en index.js
+paso4: crear modelos en /models, los modelos se deben llamar igual que las tablas de las bases de datos. (con sequelize)
+    Para realizar los modelos hay pasos:
+        1- importar los tipos de datos de una base de datos: import {DataTypes} from "sequelize"
+        2- Declarar dos objetos uno con atributos y otro con metodos: (para el caso de tareas.js): 
+            const tareasAtributos = {}; y const tareasMetodos = {}; y el modelo que va a ser la union de los dos: 
+            const tareaModel = {
+                    tareasAtributos,
+                    tareasMetodos
+            }
+            y luego exportamos el modelo: export {tareaModel};
+
+            https://sequelize.org/docs/v6/ mas info para atributos
+paso3: crear cadena de conexion (nos permite vincular el servidor con la base de datos) en el directorio databases.
+    1- crear archivo databases.js
+    2- tenemos que declarar el dialecto es decir el motor de base de datos que vamos a usar y donde va a estar ubicada la base de datos en disco.
+        para armar esta cadena tenemos que importar sequelize.
+    3- creo una variable sequelize con:
+        const sequelize = new Sequelize({
+            dialect: "sqlite",
+            storage: "./db.sqlite"
+        })
+    4- ahora tenemos que definir modelos con sequelize.define que recibe tres parametros, nombre de la columba de bd, atributos y metodos de los objetos.
+    5- definir base de datos y crear los fks
+    6- exportar
+
+paso4: la parte mas dificil, los servicios  
+    1- importar nuestra base de datos definida. databases.js
+    2- vamos a simular sincronismo en el asincronismo a traves de la programacin asyncronica.
+    3- hacer un route, un controlador en /routers.
+        a- importo express y nuestros servicios ya que los routers vinculan nuestras apis con los servicios.
+        b- declaro un router
+    4- definir los endpoints de los usuarios en app.js
