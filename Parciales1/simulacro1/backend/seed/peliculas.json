@@ -1,0 +1,236 @@
+[
+    {
+        "titulo": "The Shawshank Redemption",
+        "director": "Frank Darabont",
+        "anio": 1994,
+        "genero": "Drama"
+    },
+    {
+        "titulo": "The Godfather",
+        "director": "Francis Ford Coppola",
+        "anio": 1972,
+        "genero": "Crime"
+    },
+    {
+        "titulo": "The Dark Knight",
+        "director": "Christopher Nolan",
+        "anio": 2008,
+        "genero": "Action"
+    },
+    {
+        "titulo": "Pulp Fiction",
+        "director": "Quentin Tarantino",
+        "anio": 1994,
+        "genero": "Crime"
+    },
+    {
+        "titulo": "Forrest Gump",
+        "director": "Robert Zemeckis",
+        "anio": 1994,
+        "genero": "Drama"
+    },
+    {
+        "titulo": "Inception",
+        "director": "Christopher Nolan",
+        "anio": 2010,
+        "genero": "Sci-Fi"
+    },
+    {
+        "titulo": "Fight Club",
+        "director": "David Fincher",
+        "anio": 1999,
+        "genero": "Drama"
+    },
+    {
+        "titulo": "The Matrix",
+        "director": "Lana Wachowski, Lilly Wachowski",
+        "anio": 1999,
+        "genero": "Sci-Fi"
+    },
+    {
+        "titulo": "Goodfellas",
+        "director": "Martin Scorsese",
+        "anio": 1990,
+        "genero": "Crime"
+    },
+    {
+        "titulo": "The Lord of the Rings: The Return of the King",
+        "director": "Peter Jackson",
+        "anio": 2003,
+        "genero": "Fantasy"
+    },
+    {
+        "titulo": "Star Wars: Episode IV - A New Hope",
+        "director": "George Lucas",
+        "anio": 1977,
+        "genero": "Sci-Fi"
+    },
+    {
+        "titulo": "The Silence of the Lambs",
+        "director": "Jonathan Demme",
+        "anio": 1991,
+        "genero": "Thriller"
+    },
+    {
+        "titulo": "Schindler's List",
+        "director": "Steven Spielberg",
+        "anio": 1993,
+        "genero": "Drama"
+    },
+    {
+        "titulo": "Se7en",
+        "director": "David Fincher",
+        "anio": 1995,
+        "genero": "Thriller"
+    },
+    {
+        "titulo": "The Usual Suspects",
+        "director": "Bryan Singer",
+        "anio": 1995,
+        "genero": "Crime"
+    },
+    {
+        "titulo": "Saving Private Ryan",
+        "director": "Steven Spielberg",
+        "anio": 1998,
+        "genero": "War"
+    },
+    {
+        "titulo": "Interstellar",
+        "director": "Christopher Nolan",
+        "anio": 2014,
+        "genero": "Sci-Fi"
+    },
+    {
+        "titulo": "The Green Mile",
+        "director": "Frank Darabont",
+        "anio": 1999,
+        "genero": "Drama"
+    },
+    {
+        "titulo": "Gladiator",
+        "director": "Ridley Scott",
+        "anio": 2000,
+        "genero": "Action"
+    },
+    {
+        "titulo": "The Prestige",
+        "director": "Christopher Nolan",
+        "anio": 2006,
+        "genero": "Drama"
+    },
+    {
+        "titulo": "The Departed",
+        "director": "Martin Scorsese",
+        "anio": 2006,
+        "genero": "Crime"
+    },
+    {
+        "titulo": "Whiplash",
+        "director": "Damien Chazelle",
+        "anio": 2014,
+        "genero": "Drama"
+    },
+    {
+        "titulo": "The Lion King",
+        "director": "Roger Allers, Rob Minkoff",
+        "anio": 1994,
+        "genero": "Animation"
+    },
+    {
+        "titulo": "The Social Network",
+        "director": "David Fincher",
+        "anio": 2010,
+        "genero": "Drama"
+    },
+    {
+        "titulo": "Django Unchained",
+        "director": "Quentin Tarantino",
+        "anio": 2012,
+        "genero": "Western"
+    },
+    {
+        "titulo": "The Wolf of Wall Street",
+        "director": "Martin Scorsese",
+        "anio": 2013,
+        "genero": "Biography"
+    },
+    {
+        "titulo": "The Avengers",
+        "director": "Joss Whedon",
+        "anio": 2012,
+        "genero": "Action"
+    },
+    {
+        "titulo": "Avatar",
+        "director": "James Cameron",
+        "anio": 2009,
+        "genero": "Sci-Fi"
+    },
+    {
+        "titulo": "Titanic",
+        "director": "James Cameron",
+        "anio": 1997,
+        "genero": "Romance"
+    },
+    {
+        "titulo": "The Incredibles",
+        "director": "Brad Bird",
+        "anio": 2004,
+        "genero": "Animation"
+    },
+    {
+        "titulo": "Toy Story",
+        "director": "John Lasseter",
+        "anio": 1995,
+        "genero": "Animation"
+    },
+    {
+        "titulo": "Finding Nemo",
+        "director": "Andrew Stanton, Lee Unkrich",
+        "anio": 2003,
+        "genero": "Animation"
+    },
+    {
+        "titulo": "Up",
+        "director": "Pete Docter, Bob Peterson",
+        "anio": 2009,
+        "genero": "Animation"
+    },
+    {
+        "titulo": "WALL·E",
+        "director": "Andrew Stanton",
+        "anio": 2008,
+        "genero": "Animation"
+    },
+    {
+        "titulo": "Coco",
+        "director": "Lee Unkrich, Adrian Molina",
+        "anio": 2017,
+        "genero": "Animation"
+    },
+    {
+        "titulo": "Inside Out",
+        "director": "Pete Docter, Ronnie del Carmen",
+        "anio": 2015,
+        "genero": "Animation"
+    },
+    {
+        "titulo": "Ratatouille",
+        "director": "Brad Bird, Jan Pinkava",
+        "anio": 2007,
+        "genero": "Animation"
+    },
+    {
+        "titulo": "Monsters, Inc.",
+        "director": "Pete Docter, David Silverman, Lee Unkrich",
+        "anio": 2001,
+        "genero": "Animation"
+    },
+    {
+        "titulo": "The Jungle Book",
+        "director": "Jon Favreau",
+        "anio": 2016,
+        "genero": "Adventure"
+    }
+]

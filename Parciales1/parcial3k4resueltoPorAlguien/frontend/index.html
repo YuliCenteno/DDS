@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Libros (Parcial DDS)</title>
+    <!-- Enlace a Bootstrap CSS (CDN) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"  crossorigin="anonymous">
+
+    <link rel="stylesheet" href="styles/style.css"> <!-- Opcional: tu propio CSS -->
+</head>
+<body>
+
+    <div class="container mt-4">
+        <h1 class="mb-4 text-center">Gestión de Libros</h1>
+
+        <!-- Controles de Búsqueda -->
+        <div class="row mb-3">
+            <div class="col-md-6 offset-md-3">
+                <div class="input-group">
+                    <!-- TODO: Agregar ID a este input para poder referenciarlo desde JS -->
+                    <input type="text" class="form-control" placeholder="Buscar por título...">
+                    <!-- TODO: Agregar ID a este botón para poder referenciarlo desde JS -->
+                    <button class="btn btn-primary" type="button">Buscar</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Listado de Libros -->
+        <!-- TODO: Agregar ID a este contenedor de la tabla si se necesita referenciarlo -->
+        <div id="booksListContainer">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Título</th>
+                        <th scope="col">Autor</th>
+                        <th scope="col">Año Publicación</th>
+                        <th scope="col">Acciones</th>
+                    </tr>
+                </thead>
+                <!-- TODO: Agregar ID a este tbody para poder cargar las filas de libros aquí con JS -->
+                <tbody>
+                    <!-- Filas de libros se cargarán aquí con JavaScript -->
+                </tbody>
+            </table>
+             <!-- TODO: Agregar ID a este párrafo si se necesita referenciarlo para mostrar/ocultar -->
+             <p style="display: none;" class="text-center">No se encontraron libros.</p>
+        </div>
+
+    </div>
+
+    <!-- Enlace a nuestro archivo JavaScript principal -->
+    <script src="scripts/scripts.js"></script>
+    <!-- Opcional: Bootstrap Bundle con Popper (necesario si usas modales u otros componentes JS de Bootstrap) -->
+    <!-- No es estrictamente necesario para este parcial si solo usas estilos y grilla -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script> -->
+</body>
+</html>

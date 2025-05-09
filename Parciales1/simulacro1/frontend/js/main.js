@@ -1,0 +1,1 @@
+// JavaScript principal del frontend
