@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+    <title>Personas</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col">
+                <h1>Lista de Personas</h1>
+            </div>
+        </div>
+        <div class="row mb-5">
+            <div class="col">
+                <label for="txtNombre">Nombre</label>
+                <input type="text" name="txtNombre" id="txtNombre">
+            </div>
+            <div class="col">
+                <label for="txtApellido">Apellido</label>
+                <input type="text" name="txtApellido" id="txtApellido">
+            </div>
+            <div class="col">
+                <label for="lstOrden">Orden</label>
+                <select name="lstOrden" id="lstOrden">
+                    <option value="apellido">Apellido</option>
+                    <option value="edad">Edad</option>
+                </select>
+            </div>
+            <div class="col">
+                <button class="btn btn-success" id="btnCargarPersonas">Cargar Personas</button>
+            </div>
+            <div class="col">
+                <button class="btn btn-info" id="btnAgregarPersona" onclick="habilitarAlta()">Agregar Nueva Persona</button>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col">
+                <div id="divModificar">
+
+                </div>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col">
+                <div id="divAgregar">
+
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div id="listaPersonas">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/index.js"></script>
+</body>
+</html>
